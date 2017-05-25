@@ -34,6 +34,7 @@
     "gulp-uncss": "1.0.6",
     "gulp-util": "3.0.8",
     "handlebars": "4.0.6",
+    "highlight.js": "9.11.0",
     "imagemin-mozjpeg": "5.1.0",
     "imagemin-optipng": "4.3.0",
     "imagemin-pngquant": "4.2.0",
