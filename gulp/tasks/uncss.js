@@ -13,7 +13,18 @@ gulp.task("uncss", ["copy-css"], function () {
     if (siteData.uncssIgnore) {
         uncssIgnore = siteData.uncssIgnore;
     }
-    return gulp.src("./src/css/style.css")
+    return gulp.src("./dist/css/main.css")
+        .pipe(uncss({
+            html: glob.sync("./build/**/*.html"),
+            ignore: uncssIgnore
+        }))
+        .pipe(minifyCSS())
+        .pipe(rename({
+            suffix: ".min"
+        }))
+        .pipe(gulp.dest("./build/css")),
+
+    gulp.src("./dist/css/styleguide.css")
         .pipe(uncss({
             html: glob.sync("./build/**/*.html"),
             ignore: uncssIgnore
