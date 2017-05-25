@@ -24,7 +24,7 @@ gulp.task("livereload-watch", function () {
     gulp.watch(["./src/templates/**/*.hbs"], ["minify-html"]);
     gulp.watch(["./src/js/**/*.js"], ["concat-js"]);
     gulp.watch(["./src/images/**/*.{gif,jpg,png}"], ["image-min"]);
-    gulp.watch(["./src/content/**/*.md"], ["minify-html"]);
+    gulp.watch(["./src/**/*.md"], ["minify-html"]);
     gulp.watch(["./build/**/*.*"]).on("change", function (event) {
         gutil.log(gutil.colors.green("-"),event.path.replace(process.cwd(),""), gutil.colors.magenta(event.type));
         clearTimeout(_lto);
