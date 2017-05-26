@@ -13,7 +13,7 @@ gulp.task("concat-js", function () {
         jsFiles = siteData.concatJs;
     }
     return gulp.src(jsFiles)
-        .pipe(concat("combined.js"))
+        .pipe(concat("main.js"))
         .pipe(uglify())
         .pipe(rename({
             suffix: ".min"
