@@ -22,7 +22,7 @@ gulp.task("uncss", ["copy-css"], function () {
 
     gulp.src("./dist/css/styleguide.css")
         .pipe(uncss({
-            html: glob.sync("./build/**/*.html"),
+            html: glob.sync("./build/**/**.html"),
             ignore: uncssIgnore
         }))
         .pipe(minifyCSS())
