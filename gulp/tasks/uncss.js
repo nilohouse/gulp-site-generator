@@ -21,10 +21,6 @@ gulp.task("uncss", ["copy-css"], function () {
         .pipe(gulp.dest("./build/css")),
 
     gulp.src("./dist/css/styleguide.css")
-        .pipe(uncss({
-            html: glob.sync("./build/**/**.html"),
-            ignore: uncssIgnore
-        }))
         .pipe(minifyCSS())
         .pipe(rename({
             suffix: ".min"
