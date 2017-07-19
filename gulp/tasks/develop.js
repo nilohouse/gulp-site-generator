@@ -10,7 +10,7 @@ gulp.task("livereload-connect", ["build"], function () {
         root: "./build",
         livereload: true
     });
-    gulp.src(__filename).pipe(open({uri: "http://localhost:8080"}));
+    gulp.src(__filename).pipe(open({uri: "local.styleguides.com"}));
 });
 
 gulp.task("livereload-html", function () {

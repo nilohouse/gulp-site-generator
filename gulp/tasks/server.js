@@ -8,5 +8,5 @@ gulp.task("server", function () {
     connect.server({
         root: "build"
     });
-    gulp.src(__filename).pipe(open({uri: "http://localhost:8080"}));
+    gulp.src(__filename).pipe(open({uri: "local.styleguides.com"}));
 });
