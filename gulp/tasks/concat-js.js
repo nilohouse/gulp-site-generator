@@ -7,13 +7,30 @@ var gulp = require("gulp"),
     fs = require("fs");
 
 gulp.task("concat-js", function () {
-    var siteData = JSON.parse(fs.readFileSync("./site.json", "utf8"));
-    var jsFiles = ["./src/js/*.js"];
+    //var siteData = JSON.parse(fs.readFileSync("./site.json", "utf8"));
+    
+    var jsFilesApp = ["./src/js/app/*.js"];
+    var jsFilesStyleguide = ["./src/js/styleguide/*.js"];
+    
+    /*
     if (siteData.concatJs) {
-        jsFiles = siteData.concatJs;
+        jsFilesApp = siteData.concatJs;
     }
-    return gulp.src(jsFiles)
+    if (siteData.concatJs) {
+        jsFilesStyleguide = siteData.concatJs;
+    }
+    */
+    
+    return gulp.src(jsFilesApp)
         .pipe(concat("main.js"))
+        .pipe(uglify())
+        .pipe(rename({
+            suffix: ".min"
+        }))
+        .pipe(gulp.dest("./build/js")),
+        
+	gulp.src(jsFilesStyleguide)
+        .pipe(concat("styleguide.js"))
         .pipe(uglify())
         .pipe(rename({
             suffix: ".min"
